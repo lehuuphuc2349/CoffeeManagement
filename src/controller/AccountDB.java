@@ -60,5 +60,17 @@ public class AccountDB {
 		}
 		return listAccount;
 	}
+	public Boolean Add(String username, String password, String name) throws Exception {
+		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
+		String state = "Insert into Account(username, password, name) values(?,?,?)";
+		PreparedStatement preparedStatement = connection.prepareStatement(state);
+		preparedStatement.setString(1, username);
+		preparedStatement.setString(2, password);
+		preparedStatement.setString(3, name);
+		int result = preparedStatement.executeUpdate();
+		if(result != 0) {
+			return true;
+		} else return false;
+	}
 	
 }
