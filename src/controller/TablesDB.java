@@ -16,21 +16,21 @@ import model.Tables;
  *
  * @author Phucdz
  */
-public class TablesID {
-	private static TablesID instance;
+public class TablesDB {
+	private static TablesDB instance;
 
-	public TablesID() {
+	public TablesDB() {
 	}
 
-	public static TablesID getInstance() {
+	public static TablesDB getInstance() {
 		if(instance == null) {
-			instance = new TablesID();
+			instance = new TablesDB();
 		}
 		return instance;
 	}
 
-	public static void setInstance(TablesID instance) {
-		TablesID.instance = instance;
+	public static void setInstance(TablesDB instance) {
+		TablesDB.instance = instance;
 	}
 	public List<Tables> GetAllListTable() throws Exception {
 		List<Tables> listTables = new ArrayList<>();
