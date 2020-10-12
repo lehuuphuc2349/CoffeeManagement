@@ -75,7 +75,7 @@ public class AccountDB {
 		preparedStatement.setString(2, password);
 		preparedStatement.setString(3, name);
 		int result = preparedStatement.executeUpdate();
-		if (result != 0) {
+		if (result > 0) {
 			return true;
 		} else {
 			return false;
@@ -90,7 +90,7 @@ public class AccountDB {
 		preparedStatement.setString(2, name);
 		preparedStatement.setInt(3, ID);
 		int result = preparedStatement.executeUpdate();
-		if (result != 0) {
+		if (result > 0) {
 			return true;
 		} else {
 			return false;
@@ -103,7 +103,7 @@ public class AccountDB {
 		PreparedStatement preparedStatement = connection.prepareStatement(state);
 		preparedStatement.setInt(1, ID);
 		int result = preparedStatement.executeUpdate();
-		if (result != 0) {
+		if (result > 0) {
 			return true;
 		} else {
 			return false;
@@ -117,9 +117,11 @@ public class AccountDB {
 		preparedStatement.setString(1, password);
 		preparedStatement.setInt(2, ID);
 		int result = preparedStatement.executeUpdate();
-		if(result != 0) {
+		if (result > 0) {
 			return true;
-		} else return false;
+		} else {
+			return false;
+		}
 	}
 
 }
