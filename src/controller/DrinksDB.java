@@ -40,6 +40,4 @@ public class DrinksDB {
 		}
 		return listDrinks;
 	}
-	
-	
 }
