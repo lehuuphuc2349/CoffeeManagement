@@ -55,7 +55,6 @@ public class CoffeManagement {
 		System.out.println("2. Inser Orders");
 		System.out.println("3. Exit");
 	}
-//	ACCOUNT
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		String choose = null;
