@@ -36,7 +36,7 @@ public class AccountDB {
 		AccountDB.instance = instance;
 	}
 
-	public Boolean Login(String username, String password) throws Exception {
+	public static Boolean Login(String username, String password) throws Exception {
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Select * from Account Where username=? And password=?";
 		PreparedStatement preparedStatement = connection.prepareStatement(state);
@@ -82,7 +82,7 @@ public class AccountDB {
 		}
 	}
 
-	public Boolean Update(int ID, String password, String name) throws Exception {
+	public static Boolean Update(int ID, String password, String name) throws Exception {
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Update Account Set password=?, name=?, id=?";
 		PreparedStatement preparedStatement = connection.prepareStatement(state);
@@ -97,7 +97,7 @@ public class AccountDB {
 		}
 	}
 
-	public Boolean Delete(int ID) throws Exception {
+	public static Boolean Delete(int ID) throws Exception {
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Delete From Account Where ID=?";
 		PreparedStatement preparedStatement = connection.prepareStatement(state);
@@ -110,7 +110,7 @@ public class AccountDB {
 		}
 	}
 
-	public Boolean ChangePassword(int ID, String password) throws Exception {
+	public static Boolean ChangePassword(int ID, String password) throws Exception {
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Update Account Set password=? where ID=?";
 		PreparedStatement preparedStatement = connection.prepareStatement(state);

@@ -68,4 +68,16 @@ public class Account {
 		System.out.println("Input Name: ");
 		name = input.nextLine();
 	}
+	public void Login() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Input username: ");
+		username = input.nextLine();
+		System.out.println("Input password");
+		password = input.nextLine();
+	}
+	public void InputID() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Input ID:");
+		ID = input.nextInt();
+	}
 }
