@@ -29,7 +29,7 @@ public class DrinksDB {
 		}
 		return instance;
 	}
-	public List<Drinks> GetAllDrinks() throws Exception{
+	public static List<Drinks> GetAllDrinks() throws Exception{
 		List<Drinks> listDrinks = new ArrayList<>();
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Select * from Drinks";
@@ -40,5 +40,19 @@ public class DrinksDB {
 			listDrinks.add(drinks);
 		}
 		return listDrinks;
+	}
+	public static List<Drinks> ChooseProduct(int ID) throws Exception {
+		List<Drinks> listResult = new ArrayList<>();
+		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
+		String state = "Select Name,Prices from Drinks Where ID=?";
+		PreparedStatement preparedStatement = connection.prepareStatement(state);
+		preparedStatement.setInt(1, ID);
+		ResultSet result = preparedStatement.executeQuery();
+		
+		if(result.next()) {
+			Drinks drinks = new Drinks(result.getString(1), result.getInt(2));
+			listResult.add(drinks);
+		}
+		return listResult;	
 	}
 }

@@ -79,5 +79,6 @@ public class Account {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Input ID:");
 		ID = input.nextInt();
+		
 	}
 }

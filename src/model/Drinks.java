@@ -19,11 +19,17 @@ public class Drinks {
 	private Date startDate;
 	private Date endDate;
 
+	public Drinks() {
+	}
+	
 	public Drinks(int ID, String Name) {
 		this.ID = ID;
 		this.Name = Name;
 	}
-
+	public Drinks(String Name, int Price) {
+		this.Name = Name;
+		this.Price = Price;
+	}
 	public Drinks(int ID, String Name, int Price, Date startDate, Date endDate) {
 		this.ID = ID;
 		this.Name = Name;
@@ -31,6 +37,9 @@ public class Drinks {
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
+
+	public Drinks(String string) {
+			}
 
 	public int getID() {
 		return ID;
