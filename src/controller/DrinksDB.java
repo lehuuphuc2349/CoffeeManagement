@@ -21,6 +21,7 @@ public class DrinksDB {
 
 	public DrinksDB() {
 	}
+	
 
 	public static DrinksDB getInstance() {
 		if(instance == null) {

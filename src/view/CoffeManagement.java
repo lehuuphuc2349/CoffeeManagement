@@ -5,7 +5,9 @@
  */
 package view;
 
+import java.util.List;
 import java.util.Scanner;
+import model.Account;
 
 /**
  *
@@ -52,6 +54,23 @@ public class CoffeManagement {
 		System.out.println("1. Show list Orders");
 		System.out.println("2. Inser Orders");
 		System.out.println("3. Exit");
+	}
+//	ACCOUNT
+	public static void ListAccount() throws Exception {
+		List<Account> listAccount = controller.AccountDB.listAccount();
+		for(int i = 0; i < listAccount.size(); i++) {
+			System.out.println("ID: " + listAccount.get(i).getID());
+			System.out.println("Username: " + listAccount.get(i).getUsername());
+			System.out.println("Password: " + listAccount.get(i).getPassword());
+			System.out.println("Name: " + listAccount.get(i).getName());
+			System.out.println("");
+		}
+	}
+	public static void AddAccount() throws Exception {
+		Scanner input = new Scanner(System.in);
+		Account account = new Account();
+		account.inputInfomation();
+		boolean status = controller.AccountDB.Add(account.getUsername(), account.getPassword(), account.getName());
 	}
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);

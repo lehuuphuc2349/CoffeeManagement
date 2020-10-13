@@ -54,7 +54,7 @@ public class AccountDB {
 		return account;
 	}
 
-	public List<Account> listAccount() throws Exception {
+	public static List<Account> listAccount() throws Exception {
 		List<Account> listAccount = new ArrayList<>();
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Select * from Account";
@@ -67,7 +67,7 @@ public class AccountDB {
 		return listAccount;
 	}
 
-	public Boolean Add(String username, String password, String name) throws Exception {
+	public static Boolean Add(String username, String password, String name) throws Exception {
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Insert into Account(username, password, name) values(?,?,?)";
 		PreparedStatement preparedStatement = connection.prepareStatement(state);

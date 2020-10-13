@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Phucdz
@@ -57,5 +59,13 @@ public class Account {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	public void inputInfomation(){
+		Scanner input = new Scanner(System.in);
+		System.out.println("Input username: ");
+		username = input.nextLine();
+		System.out.println("INput password: ");
+		password = input.nextLine();
+		System.out.println("Input Name: ");
+		name = input.nextLine();
+	}
 }
