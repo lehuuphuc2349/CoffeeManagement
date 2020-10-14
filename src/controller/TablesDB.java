@@ -32,7 +32,7 @@ public class TablesDB {
 	public static void setInstance(TablesDB instance) {
 		TablesDB.instance = instance;
 	}
-	public List<Tables> GetAllListTable() throws Exception {
+	public static List<Tables> GetAllListTable() throws Exception {
 		List<Tables> listTables = new ArrayList<>();
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Select * from Tables";

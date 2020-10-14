@@ -30,7 +30,7 @@ public class OrdersDB {
 		return instance;
 	}
 
-	public List<Orders> ListOrders(int invoiceID) throws Exception {
+	public static List<Orders> ListOrders(int invoiceID) throws Exception {
 		List<Orders> listOrders = new ArrayList<>();
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Select * from orders where invoiceID=?";
@@ -43,9 +43,9 @@ public class OrdersDB {
 		}
 		return listOrders;
 
-	}
+}
 
-	public Boolean Insert(int drinkID, int invoiceID, int count) throws Exception {
+	public static sBoolean Insert(int drinkID, int invoiceID, int count) throws Exception {
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Insert into orders(drinkID, invoiceID, count) values(?,?,?)";
 		PreparedStatement preparedStatement = connection.prepareStatement(state);
@@ -53,11 +53,7 @@ public class OrdersDB {
 		preparedStatement.setInt(2, invoiceID);
 		preparedStatement.setInt(3, count);
 		int result = preparedStatement.executeUpdate();
-		if (result > 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return result > 0;
 	}
 
 }
