@@ -28,17 +28,16 @@ public class DrinksFunction {
 	}
 	public static void ChooseProdcut() throws Exception {
 		Drinks drinks = new Drinks();
-		int id = drinks.getID();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Input ID:");
-		id = input.nextInt();
+		int id = input.nextInt();
 		List<Drinks> result = controller.DrinksDB.ChooseProduct(id);
 		if(result != null) {
 			System.out.println("1. Name: " + result.get(id).getName());
 			System.out.println("2. Price: " + result.get(id).getPrice()) ;
 		} else {
 			System.out.println("Fail");
-		};
+		}
 		
 	}
 }

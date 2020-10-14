@@ -37,15 +37,13 @@ public class AccountFunction {
 	public static void UpdateAccount() throws Exception {
 		Scanner input = new Scanner(System.in);
 		Account account = new Account();
-		int id = account.getID();
-		String password = account.getPassword();
-		String name = account.getName();
+		
 		System.out.println("Input ID:");
-		id = input.nextInt();
+		int id = input.nextInt();
 		System.out.println("Input Password:");
-		password = input.nextLine();
+		String password = input.nextLine();
 		System.out.println("Input Name: ");
-		name = input.nextLine();
+		String name = input.nextLine();
 		boolean result = controller.AccountDB.Update(id, password, name);
 		if(result == true) {
 			System.out.println("Success..");
@@ -75,13 +73,11 @@ public class AccountFunction {
 	}
 	public static void ChangePassword() throws Exception {
 		Account account = new Account();
-		int id = account.getID();
-		String password = account.getPassword();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Input ID: ");
-		id = input.nextInt();
+		int id = input.nextInt();
 		System.out.println("Input Password: ");
-		password = input.nextLine();
+		String password = input.nextLine();
 		boolean result = controller.AccountDB.ChangePassword(id, password);
 		if(result == true) {
 			System.out.println("Success..");

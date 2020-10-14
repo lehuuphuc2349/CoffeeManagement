@@ -43,11 +43,7 @@ public class AccountDB {
 		preparedStatement.setString(1, username);
 		preparedStatement.setString(2, password);
 		ResultSet result = preparedStatement.executeQuery();
-		if (result.next()) {
-			return true;
-		} else {
-			return false;
-		}
+		return result.next();
 	}
 
 	public Account GetAccount() {
@@ -75,11 +71,7 @@ public class AccountDB {
 		preparedStatement.setString(2, password);
 		preparedStatement.setString(3, name);
 		int result = preparedStatement.executeUpdate();
-		if (result > 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return result > 0;
 	}
 
 	public static Boolean Update(int ID, String password, String name) throws Exception {
@@ -90,11 +82,7 @@ public class AccountDB {
 		preparedStatement.setString(2, name);
 		preparedStatement.setInt(3, ID);
 		int result = preparedStatement.executeUpdate();
-		if (result > 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return result > 0;
 	}
 
 	public static Boolean Delete(int ID) throws Exception {
@@ -103,11 +91,7 @@ public class AccountDB {
 		PreparedStatement preparedStatement = connection.prepareStatement(state);
 		preparedStatement.setInt(1, ID);
 		int result = preparedStatement.executeUpdate();
-		if (result > 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return result > 0;
 	}
 
 	public static Boolean ChangePassword(int ID, String password) throws Exception {
@@ -117,11 +101,7 @@ public class AccountDB {
 		preparedStatement.setString(1, password);
 		preparedStatement.setInt(2, ID);
 		int result = preparedStatement.executeUpdate();
-		if (result > 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return result > 0;
 	}
 
 	@Override

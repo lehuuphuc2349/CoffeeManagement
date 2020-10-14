@@ -45,7 +45,7 @@ public class OrdersDB {
 
 }
 
-	public static sBoolean Insert(int drinkID, int invoiceID, int count) throws Exception {
+	public static Boolean Insert(int drinkID, int invoiceID, int count) throws Exception {
 		Connection connection = controller.ConnectDatabase.ConnectMySQLSever();
 		String state = "Insert into orders(drinkID, invoiceID, count) values(?,?,?)";
 		PreparedStatement preparedStatement = connection.prepareStatement(state);
